@@ -1,0 +1,10 @@
+﻿# ignore build products
+
+*.sdf
+*.suo
+/src/cpp/Debug
+/src/cpp/Release
+/src/cs/bin
+/src/cs/obj
+/src/vb/bin
+/src/vb/obj

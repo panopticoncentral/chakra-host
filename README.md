@@ -1,4 +1,4 @@
-chakra-host
+Chakra Sample Hosts
 ===========
 
-Sample hosts for the Chakra JavaScript engine in C++, C#, and VB.
+This project contains sample hosts for the Chakra JavaScript engine in C++, C#, and VB.
