@@ -4,7 +4,11 @@
 *.suo
 /src/cpp/Debug
 /src/cpp/Release
+/src/cpp/ipch
 /src/cs/bin
 /src/cs/obj
 /src/vb/bin
 /src/vb/obj
+/src/memory/ipch
+/src/memory/Debug
+/src/memory/Release
