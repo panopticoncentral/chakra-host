@@ -10,6 +10,11 @@ Public Module Program
 
     Private currentSourceContext As JavaScriptSourceContext = JavaScriptSourceContext.FromIntPtr(IntPtr.Zero)
 
+    ' We have to hold on to the delegates on the managed side of things so that the
+    ' delegates aren't collected while the script is running.
+    Private ReadOnly echoDelegate As JavaScriptNativeFunction = AddressOf Echo
+    Private ReadOnly runScriptDelegate As JavaScriptNativeFunction = AddressOf RunScript
+
     Private Function ProcessArguments(arguments As String()) As CommandLineArguments
         Dim commandLineArguments = New CommandLineArguments()
         Dim current As Integer = 0
@@ -165,8 +170,8 @@ Public Module Program
             ' Now create the host callbacks that we're going to expose to the script.
             '
 
-            DefineHostCallback(hostObject, "echo", AddressOf Echo, IntPtr.Zero)
-            DefineHostCallback(hostObject, "runScript", AddressOf RunScript, IntPtr.Zero)
+            DefineHostCallback(hostObject, "echo", echoDelegate, IntPtr.Zero)
+            DefineHostCallback(hostObject, "runScript", runScriptDelegate, IntPtr.Zero)
 
             '
             ' Create an array for arguments.

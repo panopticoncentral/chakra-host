@@ -14,6 +14,11 @@ namespace ChakraHost
         };
 
         private static JavaScriptSourceContext currentSourceContext = JavaScriptSourceContext.FromIntPtr(IntPtr.Zero);
+        
+        // We have to hold on to the delegates on the managed side of things so that the
+        // delegates aren't collected while the script is running.
+        private static readonly JavaScriptNativeFunction echoDelegate = Echo;
+        private static readonly JavaScriptNativeFunction runScriptDelegate = RunScript;
 
         private static CommandLineArguments ProcessArguments(string[] arguments)
         {
@@ -190,8 +195,8 @@ namespace ChakraHost
                 // Now create the host callbacks that we're going to expose to the script.
                 //
 
-                DefineHostCallback(hostObject, "echo", Echo, IntPtr.Zero);
-                DefineHostCallback(hostObject, "runScript", RunScript, IntPtr.Zero);
+                DefineHostCallback(hostObject, "echo", echoDelegate, IntPtr.Zero);
+                DefineHostCallback(hostObject, "runScript", runScriptDelegate, IntPtr.Zero);
 
                 //
                 // Create an array for arguments.
