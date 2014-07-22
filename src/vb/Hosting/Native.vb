@@ -398,7 +398,7 @@ Namespace Hosting
 
         Friend Declare Unicode Function JsGetPropertyIdFromName Lib "jscript9.dll" (name As String, ByRef propertyId As JavaScriptPropertyId) As JavaScriptErrorCode
 
-        Friend Declare Unicode Function JsGetPropertyNameFromId Lib "jscript9.dll" (propertyId As JavaScriptPropertyId, ByRef name As String) As JavaScriptErrorCode
+        Friend Declare Unicode Function JsGetPropertyNameFromId Lib "jscript9.dll" (propertyId As JavaScriptPropertyId, ByRef buffer As IntPtr) As JavaScriptErrorCode
 
         Friend Declare Unicode Function JsGetUndefinedValue Lib "jscript9.dll" (ByRef undefinedValue As JavaScriptValue) As JavaScriptErrorCode
 

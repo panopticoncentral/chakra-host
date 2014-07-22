@@ -2,6 +2,7 @@
 
 *.sdf
 *.suo
+*.user
 /src/cpp/Debug
 /src/cpp/Release
 /src/cpp/ipch

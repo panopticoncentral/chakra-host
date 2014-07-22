@@ -1,4 +1,5 @@
 Imports System
+Imports System.Runtime.InteropServices
 
 Namespace Hosting
     ''' <summary>
@@ -42,9 +43,9 @@ Namespace Hosting
         ''' </remarks>
         Public ReadOnly Property Name() As String
             Get
-                Dim nameValue As String = Nothing
-                ThrowIfError(JsGetPropertyNameFromId(Me, nameValue))
-                Return nameValue
+                Dim buffer As IntPtr
+                ThrowIfError(JsGetPropertyNameFromId(Me, buffer))
+                Return Marshal.PtrToStringAuto(buffer)
             End Get
         End Property
 
