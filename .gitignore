@@ -3,6 +3,7 @@
 *.sdf
 *.suo
 *.user
+*.opensdf
 /src/win8.1/cpp/Debug
 /src/win8.1/cpp/Release
 /src/win8.1/cpp/ipch
@@ -23,3 +24,13 @@
 /src/win10/ie/memory/ipch
 /src/win10/ie/memory/Debug
 /src/win10/ie/memory/Release
+/src/win10/edge/cpp/Debug
+/src/win10/edge/cpp/Release
+/src/win10/edge/cpp/ipch
+/src/win10/edge/cs/bin
+/src/win10/edge/cs/obj
+/src/win10/edge/vb/bin
+/src/win10/edge/vb/obj
+/src/win10/edge/memory/ipch
+/src/win10/edge/memory/Debug
+/src/win10/edge/memory/Release
