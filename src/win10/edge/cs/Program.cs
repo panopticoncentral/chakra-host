@@ -81,11 +81,6 @@ namespace ChakraHost
             return JavaScriptValue.Invalid;
         }
 
-        private static void StartDebugging()
-        {
-            JavaScriptContext.StartDebugging();
-        }
-
         private static JavaScriptValue RunScript(JavaScriptValue callee, bool isConstructCall, JavaScriptValue[] arguments, ushort argumentCount, IntPtr callbackData)
         {
             if (argumentCount < 2)
@@ -142,8 +137,7 @@ namespace ChakraHost
         private static JavaScriptContext CreateHostContext(JavaScriptRuntime runtime, string[] arguments, int argumentsStart)
         {
             //
-            // Create the context. Note that if we had wanted to start debugging from the very
-            // beginning, we would have passed in an IDebugApplication pointer here.
+            // Create the context.
             //
 
             JavaScriptContext context = runtime.CreateContext();
@@ -282,7 +276,7 @@ namespace ChakraHost
 
                         if (commandLineArguments.Debug)
                         {
-                            StartDebugging();
+                            JavaScriptContext.StartDebugging();
                         }
 
                         //
